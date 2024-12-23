@@ -21,7 +21,7 @@ export class AddUserComponent implements OnInit {
   storeUserDate() {
     if (this.addUserForm.valid) {
       const { userName, email, phoneNo } = this.addUserForm.value;
-      const userDate = { userName, email, phoneNo}
+      const userDate = { userName, email, phoneNo} 
       this.userDetails.push(userDate);
       this.addUserForm.reset();
       console.log(this.userDetails);
