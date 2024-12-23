@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-user',
@@ -9,6 +11,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AddUserComponent implements OnInit {
   addUserForm!: FormGroup;
   userDetails: any[]= [];
+
+  constructor(private user: UserService, private router:Router){
+
+  }
 
   ngOnInit(): void {
     this.addUserForm = new FormGroup({
@@ -22,8 +28,10 @@ export class AddUserComponent implements OnInit {
     if (this.addUserForm.valid) {
       const { userName, email, phoneNo } = this.addUserForm.value;
       const userDate = { userName, email, phoneNo} 
-      this.userDetails.push(userDate);
+      this.user.addUser(userDate);
+
       this.addUserForm.reset();
+      this.router.navigate(['user/user-list']);
       console.log(this.userDetails);
     }
   }

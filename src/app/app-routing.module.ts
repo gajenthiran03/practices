@@ -6,7 +6,7 @@ import { ProductComponent } from './product/product.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'user-list',
     pathMatch: 'full',
   },
   {
