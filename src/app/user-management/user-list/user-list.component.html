@@ -1,4 +1,4 @@
-<div class="col-12">
+<div class="col-12 p-5">
     <button class="btn btn-primary" (click)="navigateToAddUser()">Add</button>
     <table class="table table-striped">
       <thead>
@@ -7,14 +7,22 @@
           <th>UserName</th>
           <th>Email</th>
           <th>Phone No</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let user of userDetails; index as i">
-        <td>{{i+1}}</td>
+        <td>{{user.id}}</td>
         <td>{{user?.userName}}</td>
         <td>{{user?.email}}</td>
         <td>{{user?.phoneNo}}</td>
+        <td>
+          <div class="row align-items-center justify-content-evenly">
+            <button class="btn btn-warning col-5">Edit</button>
+            <button class="btn btn-danger col-5" (click)="deleteUser(user.id)">Delete</button>
+
+          </div>
+        </td>
         </tr>
       </tbody>
     </table>
