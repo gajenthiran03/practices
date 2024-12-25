@@ -11,11 +11,14 @@ import { UserHttpService } from '../user-http.service';
 export class UserListComponent implements OnInit {
 
   userDetails!: any[]
+  userRole:any;
 
   constructor(private user: UserHttpService, private router:Router){
 
   }
   ngOnInit(): void {
+
+    this.userRole = sessionStorage.getItem('userRole');
    this.getUserList()
   }
 
@@ -28,6 +31,10 @@ export class UserListComponent implements OnInit {
         console.error(`Error: ${error}`)
       }
      });
+  }
+
+  editUser(userId:any){
+    this.router.navigate(['edit-user', userId]);
   }
 
   deleteUser(userData: any){
@@ -43,6 +50,10 @@ export class UserListComponent implements OnInit {
   }
   
   navigateToAddUser(){
+    if(this.userRole == "Admin"){
    this.router.navigate(['user/add-user']);
+    }else{
+      alert("You done have access");
+    }
   }
 }

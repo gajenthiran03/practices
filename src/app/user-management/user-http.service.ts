@@ -20,12 +20,16 @@ export class UserHttpService {
     return this.http.post(this.apiUrl, userData)
   }
 
-  put(userData: any):Observable<any>{
-    return this.http.put(`${this.apiUrl}/${userData.id}`, userData)
+  put(userId:any ,userData: any):Observable<any>{
+    return this.http.put(`${this.apiUrl}/${userId}`, userData)
   }
 
   delete(userData:any){
     return this.http.delete(`${this.apiUrl}/${userData}`)
+  }
+
+  getUserById(userId:any):Observable<any>{
+    return this.http.get(`${this.apiUrl}/${userId}`);
   }
 
 

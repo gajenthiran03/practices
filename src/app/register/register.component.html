@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+    
+      <form [formGroup]="registerationFrom" (ngSubmit)="signIn()"  class="col-4">
+        <h1 class="text-center">Sign in</h1>
+        <label >Username</label>
+        <input class="form-control" formControlName="userName"  type="text" />
+        <label>Email</label>
+        <input class="form-control" formControlName="email" type="text" />
+        <label>Passwoed</label>
+        <input class="form-control" formControlName="password" type="text" />
+        <button class="btn btn-success btn-lg mt-5 px-5" >Sign In</button>
+      </form>
+    </div>
