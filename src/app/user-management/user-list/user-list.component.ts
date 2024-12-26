@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { UserHttpService } from '../user-http.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-user-list',
@@ -11,6 +12,8 @@ import { UserHttpService } from '../user-http.service';
 export class UserListComponent implements OnInit {
 
   userDetails!: any[]
+
+  date = new Date();
 
   constructor(private user: UserHttpService, private router:Router){
 
