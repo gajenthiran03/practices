@@ -12,6 +12,7 @@ import { DatePipe } from '@angular/common';
 export class UserListComponent implements OnInit {
 
   userDetails!: any[]
+  userRole:any;
 
   date = new Date();
 
@@ -19,6 +20,8 @@ export class UserListComponent implements OnInit {
 
   }
   ngOnInit(): void {
+
+    this.userRole = sessionStorage.getItem('userRole');
    this.getUserList()
   }
 
@@ -31,6 +34,10 @@ export class UserListComponent implements OnInit {
         console.error(`Error: ${error}`)
       }
      });
+  }
+
+  editUser(userId:any){
+    this.router.navigate(['edit-user', userId]);
   }
 
   deleteUser(userData: any){
@@ -46,6 +53,10 @@ export class UserListComponent implements OnInit {
   }
   
   navigateToAddUser(){
+    if(this.userRole == "Admin"){
    this.router.navigate(['user/add-user']);
+    }else{
+      alert("You done have access");
+    }
   }
 }

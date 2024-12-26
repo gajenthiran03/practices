@@ -23,8 +23,8 @@
         <td>{{user?.phoneNo}}</td>
         <td>
           <div class="row align-items-center justify-content-evenly">
-            <button class="btn btn-warning col-5">Edit</button>
-            <button class="btn btn-danger col-5" (click)="deleteUser(user.id)">Delete</button>
+            <button class="btn btn-warning btn-sm col-5"(click)="editUser(user.id)">Edit</button>
+            <button class="btn btn-danger btn-sm col-5" (click)="deleteUser(user.id)">Delete</button>
 
           </div>
         </td>
